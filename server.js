@@ -8,6 +8,8 @@ const path = require("path");
 const PORT = process.env.PORT || 5000;
 const authRoute = require("./routes/auth")
 const userRoute = require("./routes/users")
+const postRoute = require("./routes/posts")
+const categoryRoute = require("./routes/categories")
 
 dotenv.config();
 
@@ -31,8 +33,8 @@ app.use(morgan("common"));
 // Define route here
 app.use("/api/auth", authRoute);
 app.use("/api/users", userRoute);
-// app.use("/api/posts", postRoute);
-// app.use("/api/categories", categoryRoute);
+app.use("/api/posts", postRoute);
+app.use("/api/categories", categoryRoute);
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
@@ -40,27 +42,25 @@ if (process.env.NODE_ENV === "production") {
 }
 
 
-// const storage = multer.diskStorage({
-//   destination: (req, file, cb) => {
-//     cb(null, "public/images");
-//   },
-//   filename: (req, file, cb) => {
-//     cb(null, req.body.name);
-//   },
-// });
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, "public/images");
+  },
+  filename: (req, file, cb) => {
+    cb(null, "olivia_intro_1.png");
+  },
+});
 
-// const upload = multer({ storage: storage });
-// app.post("/api/upload", upload.single("file"), (req, res) => {
-//   try {
-//     return res.status(200).json("File uploded successfully");
-//   } catch (error) {
-//     console.error(error);
-//   }
-// });
+const upload = multer({ storage: storage });
+app.post("/api/upload", upload.single("file"), (req, res) => {
+  try {
+    return res.status(200).json("File uploded successfully");
+  } catch (error) {
+    console.error(error);
+  }
+});
 
-// app.use("/api/auth", authRoute);
-// app.use("/api/users", userRoute);
-// app.use("/api/posts", postRoute);
+
 
 // // Serve up static assets (usually on heroku)
 
