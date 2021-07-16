@@ -6,7 +6,7 @@ export default function SinglePost() {
       <div className="singlePostWrapper">
         <img
           className="singlePostImg"
-          src="https://images.pexels.com/photos/6685428/pexels-photo-6685428.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
+          src="https://www.usnews.com/dims4/USNEWS/b2709a9/2147483647/thumbnail/640x420/quality/85/?url=http%3A%2F%2Fmedia.beam.usnews.com%2F21%2Fcd%2F08c035f149cea2e8f7c3d4eecae7%2F190510-sanfran-editorial.jpg"
           alt=""
         />
         <h1 className="singlePostTitle">

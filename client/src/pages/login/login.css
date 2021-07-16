@@ -1,0 +1,62 @@
+.login{
+    height: calc(100vh - 50px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: 
+    linear-gradient(
+      rgba(255, 255, 255, 0.3),
+      rgba(255, 255, 255, 0.3)
+    ),
+    url("https://media.istockphoto.com/photos/blurred-city-sunrise-background-picture-id1044498000?k=6&m=1044498000&s=170667a&w=0&h=E6zFLAR346x1OgzQDviyNlWAq-VplpUJQeFBcLlKNb8=");
+    background-size: cover;
+}
+.loginTitle{
+    font-size: 50px;
+}
+.loginForm{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.loginForm > label {
+    margin: 10px 0;
+
+}
+
+.loginInput{
+    padding: 10px;
+    background-color: white;
+    border: none;
+    border-radius: 10px;
+}
+
+.loginInput:focus {
+    outline: none;
+  }
+
+.loginButton{
+    margin-top: 20px;
+    cursor: pointer;
+    background-color: rgb(250, 110, 110);
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.loginRegisterButton {
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background-color: teal;
+    cursor: pointer;
+    padding: 10px;
+    border: none;
+    color: white;
+    border-radius: 10px;
+  }
