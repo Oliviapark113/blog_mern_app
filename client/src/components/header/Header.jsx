@@ -7,8 +7,8 @@ export default function Header() {
           <span className="headerTitlesm">React & Node</span>
           <span className="headerTitleLg">Blog</span>
       </div>
-      {/* <img className="headerImg" src="../assets/images/yusong-he-fBeVSk4gAOs-unsplash.jpg" alt=""/> */}
-      <img className="headerImg" src="https://t4.ftcdn.net/jpg/01/43/85/77/240_F_143857733_9OcK0EgB1pZzIB1TeeXKCAzQtKQjjgrj.jpg" alt=""/>
+
+      <img className="headerImg" src="https://www.teahub.io/photos/full/273-2732163_city-blur-background-hd.jpg" alt=""/>
     </div>
   )
 }

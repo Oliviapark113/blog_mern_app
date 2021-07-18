@@ -35,6 +35,7 @@ export default function Topbar() {
           user?(
             <Link to="/settings">
             <img className="topImg" src={PF+user.profilePic} alt=""/>
+            {/* <img className="topImg" src="../../../assets/images/olivia_sidebar2.jpg"alt=""/> */}
             </Link>
           ):( 
               <ul className="topList">

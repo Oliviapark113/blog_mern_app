@@ -19,7 +19,7 @@ export default function Sidebar() {
     <div className="sidebar">
       <div className="sidebarItem">
         <span className="sidebarTitle">ABOUT ME</span>
-        <img src="../assets/images/olivia_sidebar2.jpg" alt="" />
+        <img src="../assets/images/img_2.jpg" alt="" />
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, vel! Modi, maxime nam. Non sapiente fuga accusamus praesentium temporibus ipsa obcaecati, amet nostrum, accusantium reiciendis asperiores necessitatibus ea, maxime facilis.
          </p>
