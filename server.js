@@ -18,18 +18,20 @@ mongoose.connect(
   {  useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
-    useFindAndModify: false})
+    useFindAndModify:true})
     .then(
       console.log("Connected to MongoDB")
     ).catch(err=>console.log(err))
 
-
-app.use("/images", express.static(path.join(__dirname, "/public/images")));
+ 
 
 // //middleware
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(morgan("common"));
+app.use("/images", express.static(path.join(__dirname, "/images")));
+
+
 // Define route here
 app.use("/api/auth", authRoute);
 app.use("/api/users", userRoute);
@@ -44,10 +46,10 @@ if (process.env.NODE_ENV === "production") {
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, "public/images");
+    cb(null, "images");
   },
   filename: (req, file, cb) => {
-    cb(null, "olivia_intro_1.png");
+    cb(null, req.body.name);
   },
 });
 
@@ -60,6 +62,9 @@ app.post("/api/upload", upload.single("file"), (req, res) => {
   }
 });
 
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+}
 
 
 // // Serve up static assets (usually on heroku)
