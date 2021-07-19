@@ -8,7 +8,7 @@ import { Context } from "../../context/Context";
 export default function SinglePost() {
 
   // const PF = "http://localhost:5000/images/";
-  // const PDF = "../../../../images/";
+  const PDF = "../../../../images/";
 
 
   const location = useLocation()
@@ -69,8 +69,7 @@ export default function SinglePost() {
       <div className="singlePostWrapper">
         {post.photo && <img
           className="singlePostImg"
-          // src={PDF + post.photo}
-          src={`https://github.com/Oliviapark113/blog_mern_app/blob/main/images/${post.photo}?raw=true`}
+          src={PDF + post.photo}
           alt=""
         />}
 

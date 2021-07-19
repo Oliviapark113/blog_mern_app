@@ -15,7 +15,7 @@ export default function Settings() {
 
   const { user, dispatch } = useContext(Context);
   // const PF = "http://localhost:5000/images/"
-  // const PDF = "../../../../images/";
+  const PDF = "../../../../images/";
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -55,16 +55,10 @@ export default function Settings() {
         <form className="settingsForm" onSubmit={handleSubmit}>
           <label>Profile Picture</label>
           <div className="settingsPP">
-            {/* <img src={
+            <img src={
               file ? URL.createObjectURL(file) 
               :user.profilePic? PDF + user.profilePic: "../../../assets/images/noAvatar.png"
-              } alt="" /> */}
-              <img src={
-              file ? URL.createObjectURL(file) 
-              :user.profilePic? `https://github.com/Oliviapark113/blog_mern_app/blob/main/images/${user.profilePic}?raw=true`
-              : "../../../assets/images/noAvatar.png"
               } alt="" />
-
             <label htmlFor="fileInput">
               <i className="settingsPPIcon far fa-user-circle"></i>
             </label>
