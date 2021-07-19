@@ -7,7 +7,7 @@ import "./login.css";
 export default function Login() {
   const userRef = useRef();
   const passwordRef = useRef();
-  const { dispatch, isFetching} = useContext(Context);
+  const { dispatch, isFetching } = useContext(Context);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -29,20 +29,20 @@ export default function Login() {
     <div className="login">
       <span className="loginTitle">Log In</span>
       <form className="loginForm" onSubmit={handleSubmit}>
-          <label>Username</label>
-          <input 
-          className="loginInput" 
-          type="text" 
+        <label>Username</label>
+        <input
+          className="loginInput"
+          type="text"
           placeholder="Enter your username..."
-          ref={userRef}/>
+          ref={userRef} />
 
-          <label>Password</label>
-          <input 
-          type="password" 
-          className="loginInput" 
+        <label>Password</label>
+        <input
+          type="password"
+          className="loginInput"
           placeholder="Enter your password..."
-          ref={passwordRef}/>
-          <button className="loginButton" type="submit">Log In</button>
+          ref={passwordRef} />
+        <button className="loginButton" type="submit">Log In</button>
       </form>
       <button className="loginRegisterButton" type="submit" disabled={isFetching}>
         <Link className="link" to="/register">Register</Link></button>

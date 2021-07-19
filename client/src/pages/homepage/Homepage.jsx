@@ -7,21 +7,21 @@ import "./homepage.css";
 import axios from "axios"
 
 export default function Homepage() {
-  const {search} = useLocation();
+  const { search } = useLocation();
   const [posts, setPosts] = useState([])
 
-  useEffect(()=>{
-     const fetchPosts = async () =>{
-      const res = await axios.get("/posts"+search)
+  useEffect(() => {
+    const fetchPosts = async () => {
+      const res = await axios.get("/posts" + search)
       setPosts(res.data)
-     }
-     fetchPosts()
+    }
+    fetchPosts()
   }, [search])
   return (
     <>
       <Header />
       <div className="home">
-        <Posts posts={posts}/>
+        <Posts posts={posts} />
         <Sidebar />
       </div>
     </>

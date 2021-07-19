@@ -21,14 +21,17 @@ export default function Sidebar() {
         <span className="sidebarTitle">ABOUT ME</span>
         <img src="../assets/images/img_2.jpg" alt="" />
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam, vel! Modi, maxime nam. Non sapiente fuga accusamus praesentium temporibus ipsa obcaecati, amet nostrum, accusantium reiciendis asperiores necessitatibus ea, maxime facilis.
+          I am Olivia (Youngmee) Park, I am a passionate coder with fashion designer background NYC. 
+          I am happy to see you all in here at my react blog App. 
+          Enjoy features I have ..I still work in progress to add more feature. 
+          
          </p>
       </div>
       <div className="sidebarItem">
         <span className="sidebarTitle">CATEGORIES</span>
         <ul className="sidebarList">
           {cats.map(c=>
-          <Link to={`/?cat=${c.name}`} className="link">
+          <Link to={`/?cat=${c.name}`} key={c._id} className="link">
          <li className="sidebarListItem">
             {c.name}
          </li>

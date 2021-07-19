@@ -11,14 +11,14 @@ export default function Write() {
   const {user} = useContext(Context)
 
   const handleSubmit = async (e)=>{
+
     e.preventDefault();
     const newPost ={
       username: user.username,
       title,
-      desc,
-     
-
+      desc, 
     };
+
     if(file){
       const data = new FormData();
       const filename= Date.now() + file.name;
@@ -75,8 +75,7 @@ export default function Write() {
       <button className="writeSubmit" type="submit">
           Publish
         </button>
-      </form>
-   
+      </form> 
     </div>
   )
 }

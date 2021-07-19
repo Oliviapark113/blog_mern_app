@@ -17,7 +17,6 @@ import {
 
 function App() {
   const { user } = useContext(Context);
-  console.log(user)
   return (
     <Router>
     <Topbar/>
