@@ -7,7 +7,7 @@ export default function Topbar() {
   const { user, dispatch } = useContext(Context);
 
   // const PF = "http://localhost:5000/images/"
-  const PDF = "../../../../images/";
+  // const PDF = "../../../../images/";
 
   const handleLogout = () => {
     dispatch({ type: "LOGOUT" });
@@ -35,7 +35,10 @@ export default function Topbar() {
         {
           user?(
             <Link to="/settings">
-            <img className="topImg" src={user.profilePic? PDF+user.profilePic: "../../../assets/images/noAvatar.png"} alt=""/>
+            {/* <img className="topImg" src={user.profilePic? PDF+user.profilePic: "../../../assets/images/noAvatar.png"} alt=""/> */}
+            <img className="topImg" src={user.profilePic? 
+            `https://github.com/Oliviapark113/blog_mern_app/blob/main/images/${user.profilePic}?raw=true`
+             : "../../../assets/images/noAvatar.png"} alt=""/>
             </Link>
           ):( 
               <ul className="topList">
