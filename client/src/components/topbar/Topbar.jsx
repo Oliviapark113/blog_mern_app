@@ -6,7 +6,8 @@ import {useContext} from "react"
 export default function Topbar() {
   const { user, dispatch } = useContext(Context);
 
-  const PF = "http://localhost:5000/images/"
+  // const PF = "http://localhost:5000/images/"
+  const PDF = "../../../../images/";
 
   const handleLogout = () => {
     dispatch({ type: "LOGOUT" });
@@ -34,7 +35,7 @@ export default function Topbar() {
         {
           user?(
             <Link to="/settings">
-            <img className="topImg" src={user.profilePic? PF+user.profilePic: "../../../assets/images/noAvatar.png"} alt=""/>
+            <img className="topImg" src={user.profilePic? PDF+user.profilePic: "../../../assets/images/noAvatar.png"} alt=""/>
             </Link>
           ):( 
               <ul className="topList">

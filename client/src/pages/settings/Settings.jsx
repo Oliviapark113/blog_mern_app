@@ -14,7 +14,8 @@ export default function Settings() {
   const [success, setSuccess] = useState(false);
 
   const { user, dispatch } = useContext(Context);
-  const PF = "http://localhost:5000/images/"
+  // const PF = "http://localhost:5000/images/"
+  const PDF = "../../../../images/";
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -56,7 +57,7 @@ export default function Settings() {
           <div className="settingsPP">
             <img src={
               file ? URL.createObjectURL(file) 
-              :user.profilePic? PF + user.profilePic: "../../../assets/images/noAvatar.png"
+              :user.profilePic? PDF + user.profilePic: "../../../assets/images/noAvatar.png"
               } alt="" />
 
             <label htmlFor="fileInput">
