@@ -9,8 +9,11 @@ export default function Sidebar() {
 
   useEffect(()=>{
     const getCats = async () =>{
-      const res = await axios.get("/api/categories")
-        setCategories(res.data)
+      try{const res = await axios.get("/api/categories")
+      setCategories(res.data)}
+      catch(err){
+        console.log(err)
+      }
     }
     getCats()
   },[])
