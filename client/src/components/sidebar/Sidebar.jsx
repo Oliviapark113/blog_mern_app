@@ -5,12 +5,12 @@ import {Link} from "react-router-dom"
 
 export default function Sidebar() {
 
-  const [cats, setCats] = useState([]);
+  const [categories, setCategories] = useState([]);
 
   useEffect(()=>{
     const getCats = async () =>{
       const res = await axios.get("/categories")
-        setCats(res.data)
+        setCategories(res.data)
     }
     getCats()
   },[])
@@ -30,10 +30,10 @@ export default function Sidebar() {
       <div className="sidebarItem">
         <span className="sidebarTitle">CATEGORIES</span>
         <ul className="sidebarList">
-          {cats.map(c=>
-          <Link to={`/?cat=${c.name}`} key={c._id} className="link">
+          {categories.map(category=>
+          <Link to={`/?cat=${category.name}`} key={category._id} className="link">
          <li className="sidebarListItem">
-            {c.name}
+            {category.name}
          </li>
           </Link>
        
