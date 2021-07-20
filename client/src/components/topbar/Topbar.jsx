@@ -8,7 +8,6 @@ export default function Topbar() {
 
   // const PF = "http://localhost:5000/images/"
   const PDF = "../../../../images/";
-
   const handleLogout = () => {
     dispatch({ type: "LOGOUT" });
   };

@@ -1,23 +1,21 @@
 import "./sidebar.css"
-import {useState, useEffect} from "react"
-import axios from "axios"
-import {Link} from "react-router-dom"
+// import {useState, useEffect} from "react"
+// import axios from "axios"
+// import {Link} from "react-router-dom"
 
 export default function Sidebar() {
 
-  const [categories, setCategories] = useState([]);
-
-  useEffect(()=>{
-    const getCats = async () =>{
-      try{const res = await axios.get("/api/categories")
-      setCategories(res.data)}
-      catch(err){
-        console.log(err)
-      }
-    }
-    getCats()
-  },[])
-
+  // const [categories, setCategories] = useState([]);
+  // useEffect(()=>{
+  //   const getCats = async () =>{
+  //     try{const res = await axios.get("/api/categories")
+  //     setCategories(res.data)}
+  //     catch(err){
+  //       console.log(err)
+  //     }
+  //   }
+  //   getCats()
+  // },[])
   return (
     <div className="sidebar">
       <div className="sidebarItem">
@@ -26,20 +24,31 @@ export default function Sidebar() {
         <p>
           I am Olivia (Youngmee) Park, I am a passionate coder with fashion designer background NYC. 
           I am happy to see you all in here at my react blog App. 
-          Enjoy features I have ..I still work in progress to add more feature. 
-          
+          Enjoy features I have ..I still work in progress to add more feature.         
          </p>
       </div>
       <div className="sidebarItem">
         <span className="sidebarTitle">CATEGORIES</span>
         <ul className="sidebarList">
-          {categories.map(category=>
+          {/* {categories.map(category=>
           <Link to={`/?cat=${category.name}`} key={category._id} className="link">
          <li className="sidebarListItem">
             {category.name}
          </li>
           </Link>     
-         )}
+         )} */}
+            <li className="sidebarListItem">
+             Fashion
+            </li>
+            <li className="sidebarListItem">
+             Interior
+            </li>
+            <li className="sidebarListItem">
+             Life Style
+            </li>
+            <li className="sidebarListItem">
+             Travel
+            </li>
         </ul>
       </div>
       <div className="sidebarItem">

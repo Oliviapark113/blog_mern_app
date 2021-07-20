@@ -10,7 +10,6 @@ export default function SinglePost() {
   // const PF = "http://localhost:5000/images/";
   const PDF = "../../../../images/";
 
-
   const location = useLocation()
   const path = location.pathname.split("/")[2]
   const [post, setPost] = useState({})
@@ -57,7 +56,6 @@ export default function SinglePost() {
           title,
           desc
         })
-      // window.location.reload();
       setUpdateMode(false)
     }
     catch (err) {
