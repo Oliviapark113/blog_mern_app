@@ -7,8 +7,8 @@ import { Context } from "../../context/Context";
 
 export default function SinglePost() {
 
-  // const PF = "http://localhost:5000/images/";
-  const PDF = "../../../../images/";
+  const PF = "http://localhost:5000/images/";
+  // const PDF = "../../../../images/";
 
   const location = useLocation()
   const path = location.pathname.split("/")[2]
@@ -67,7 +67,7 @@ export default function SinglePost() {
       <div className="singlePostWrapper">
         {post.photo && <img
           className="singlePostImg"
-          src={PDF + post.photo}
+          src={PF + post.photo}
           alt=""
         />}
 

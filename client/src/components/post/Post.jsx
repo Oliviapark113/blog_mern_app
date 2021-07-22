@@ -6,7 +6,8 @@ export default function Post({ post }) {
   const PDF = "../../../../images/";  
   return (
       <div className="post">
-         {post.photo && <img className="postImg" src={ `../../../../images/${post.photo}` } alt=""/>}   
+         {/* {post.photo && <img className="postImg" src={ `../../../../images/${post.photo}` } alt=""/>}    */}
+         {post.photo && <img className="postImg" src={ `http://localhost:5000/images/${post.photo}` } alt=""/>} 
         <div className="postInfo">
           <div className="postCats">
             {post.categories.map(c=>(
