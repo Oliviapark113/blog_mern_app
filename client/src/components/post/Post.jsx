@@ -1,13 +1,20 @@
 import "./post.css";
 import {Link} from "react-router-dom"
+// import {Image} from 'cloudinary-react'
 
 export default function Post({ post }) {
   // const PF = "http://localhost:5000/images/";
-  const PDF = "../../../../images/";  
+
+  // const [imageIds, setImageIds] = useState();
+
   return (
       <div className="post">
-         {/* {post.photo && <img className="postImg" src={ `../../../../images/${post.photo}` } alt=""/>}    */}
          {post.photo && <img className="postImg" src={ `http://localhost:5000/images/${post.photo}` } alt=""/>} 
+         {/* {post.photo && <Image 
+         className="postImg" 
+         cloudName="oliviastorage"
+         publicId={imageId}
+         alt=""/>}  */}
         <div className="postInfo">
           <div className="postCats">
             {post.categories.map(c=>(

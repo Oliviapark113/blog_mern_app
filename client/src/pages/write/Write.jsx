@@ -2,7 +2,7 @@ import "./write.css"
 import { useState ,useContext} from "react"
 import axios from "axios"
 import {Context} from "../../context/Context"
-// import {Image} from "cloudinary-react"
+import {Image} from "cloudinary-react"
 
 export default function Write() {
 

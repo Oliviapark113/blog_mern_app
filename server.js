@@ -13,6 +13,7 @@ const categoryRoute = require("./routes/categories")
 const {cloudinary} = require("./utils/cloudinary")
 
 
+
 dotenv.config();
 
 mongoose.connect(
@@ -26,9 +27,6 @@ mongoose.connect(
     ).catch(err=>console.log(err))
  
 
-// //middleware
-// app.use(express.json({limit: '50mb'}));
-// app.use(express.urlencoded({limit: '50mb', extended: true, parameterLimit: 50000}));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -48,19 +46,34 @@ if (process.env.NODE_ENV === "production") {
 
 }
 
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, "images");
-  },
-  filename: (req, file, cb) => {
-    cb(null, req.body.name);
-  },
-});
 
-const upload = multer({ storage: storage });
-app.post("/api/upload", upload.single("file"), (req, res) => {
+const upload = multer({ 
+  storage: multer.diskStorage({}),
+  fileFilter: (req, file, cb) => {
+    let ext = path.extname(file.originalname);  
+    if (ext !== ".jpg" && ext !== ".jpeg" && ext !== ".png") {
+      cb(new Error("File type is not supported"), false);
+      return;
+    }
+    cb(null, true);
+  },
+ });
+
+
+app.post("/api/upload", upload.single("file"), async(req, res) => {
   try {
-    return res.status(200).json("File uploded successfully");
+    const filePath = req.file.path
+    const result = await cloudinary.uploader.upload(filePath, {
+      upload_preset: "blog_folder",
+      folder:"blog_folder"
+    }) 
+    //Create new post
+    const uploadImage = {
+      photo: result.secure_url,
+      cloudinary_id: result.public_id,
+    }
+
+    return res.status(200).json(uploadImage);
   } catch (error) {
     console.error(error);
   }
