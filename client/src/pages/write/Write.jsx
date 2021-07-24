@@ -2,7 +2,6 @@ import "./write.css"
 import { useState ,useContext} from "react"
 import axios from "axios"
 import {Context} from "../../context/Context"
-import {Image} from "cloudinary-react"
 
 export default function Write() {
 
@@ -25,15 +24,13 @@ export default function Write() {
 
       const data = new FormData();
       const filename=file.name; 
-      // const filename= Date.now() + file.name; 
       data.append("name", filename)
       data.append("file", file)
-      newPost.photo = filename;
-
 
       try{
         const res = await axios.post("/api/upload", data); 
-        console.log(res.data)      
+        console.log(res.data.avatar)  
+        newPost.photo=res.data.avatar   
        }
        catch(err)
        {
@@ -52,14 +49,9 @@ export default function Write() {
 
   }
 
- 
-
-
-
   return (
     <div className="write" >
-
-      {file && (<img className="writeImg" src={URL.createObjectURL(file)} alt=""/>)}
+      {file && (<img className="writeImg" src={URL.createObjectURL(file)} alt=""/>)}  
 
       <form className="writeForm" 
       onSubmit={handleSubmit} 

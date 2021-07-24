@@ -2,11 +2,13 @@ const router = require("express").Router();
 const User = require ("../models/User")
 const Post = require('../models/Post')
 const bcrypt = require("bcrypt");
+const Upload=require("../models/Upload")
 
 
 //CREATE NEW POST 
 router.post("/", async(req, res)=>{
     const newPost= new Post(req.body)
+  
     try{
     
         const savedPost = await newPost.save();
@@ -69,6 +71,7 @@ router.delete("/:id", async(req, res)=>{
 router.get("/:id", async(req, res)=>{
     try{
        const post = await Post.findById(req.params.id);
+    //    const post = await Post.findById(req.params.id).populate("upload");
        res.status(200).json(post);
     }
     catch(err){

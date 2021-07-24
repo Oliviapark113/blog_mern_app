@@ -9,8 +9,10 @@ const PORT = process.env.PORT || 5000;
 const authRoute = require("./routes/auth")
 const userRoute = require("./routes/users")
 const postRoute = require("./routes/posts")
+// const uploadRoute = require("./routes/upload")
 const categoryRoute = require("./routes/categories")
 const {cloudinary} = require("./utils/cloudinary")
+const Upload = require("./models/Upload")
 
 
 
@@ -39,6 +41,7 @@ app.use("/api/auth", authRoute);
 app.use("/api/users", userRoute);
 app.use("/api/posts", postRoute);
 app.use("/api/categories", categoryRoute);
+// app.use("/api/upload", uploadRoute);
 
   // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
@@ -67,13 +70,17 @@ app.post("/api/upload", upload.single("file"), async(req, res) => {
       upload_preset: "blog_folder",
       folder:"blog_folder"
     }) 
-    //Create new post
-    const uploadImage = {
-      photo: result.secure_url,
-      cloudinary_id: result.public_id,
-    }
 
-    return res.status(200).json(uploadImage);
+      //Create new Upload
+      const newUpload = new Upload({
+        name: req.body.name,
+        avatar: result.secure_url,
+        cloudinary_id: result.public_id,
+      })
+      // Save uploadInfo
+      await newUpload.save()
+      return res.status(200).json(newUpload);
+     
   } catch (error) {
     console.error(error);
   }

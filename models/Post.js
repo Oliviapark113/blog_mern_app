@@ -1,5 +1,7 @@
 const mongoose = require("mongoose");
 
+const Schema = mongoose.Schema;
+
 const PostSchema = new mongoose.Schema(
   {
     title: {
@@ -23,9 +25,13 @@ const PostSchema = new mongoose.Schema(
       type: Array,
       required: false,
     },
-    cloudinary_id:{
-      type: String,
-    }
+
+    upload: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Upload"
+      }
+    ]
   },
   { timestamps: true }
 );

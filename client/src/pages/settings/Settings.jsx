@@ -15,7 +15,7 @@ export default function Settings() {
 
   const { user, dispatch } = useContext(Context);
   const PF = "http://localhost:5000/images/"
-  // const PDF = "../../../../images/";
+
   
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -28,13 +28,17 @@ export default function Settings() {
     };
     if (file) {
       const data = new FormData();
-      const filename = Date.now() + file.name;
+      const filename = file.name;
       data.append("name", filename);
       data.append("file", file);
-      updatedUser.profilePic = filename;
+   
       try {
-        await axios.post("/api/upload", data);
-      } catch (err) { }
+        const res = await axios.post("/api/upload", data);
+        console.log(res.data)
+        updatedUser.profilePic  = res.data.avatar
+
+      } catch (err) 
+      {console.log(err) }
     }
     try {
       const res = await axios.put("/api/users/" + user._id, updatedUser);
@@ -57,7 +61,7 @@ export default function Settings() {
           <div className="settingsPP">
             <img src={
               file ? URL.createObjectURL(file) 
-              :user.profilePic? PF + user.profilePic: "../../../assets/images/noAvatar.png"
+              :user.profilePic? user.profilePic: "../../../assets/images/noAvatar.png"
               } alt="" />
             <label htmlFor="fileInput">
               <i className="settingsPPIcon far fa-user-circle"></i>

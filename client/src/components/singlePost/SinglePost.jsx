@@ -67,7 +67,7 @@ export default function SinglePost() {
       <div className="singlePostWrapper">
         {post.photo && <img
           className="singlePostImg"
-          src={PF + post.photo}
+          src={post.photo}
           alt=""
         />}
 
